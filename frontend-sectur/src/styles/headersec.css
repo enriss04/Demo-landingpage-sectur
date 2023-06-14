@@ -1,0 +1,109 @@
+@import './index.css';
+
+
+
+
+.menu__link {
+    @apply flex justify-center p-2 text-lg;
+    text-decoration: none;
+}
+
+.submenu .menu__link {
+    @apply bg-[#b2a185] justify-center text-black;
+}
+
+.menu__link:hover {
+    @apply bg-[#890E33] text-white;
+}
+
+.container-submenu {
+    @apply relative bg-[#d4c19b] text-black;
+}
+
+.submenu {
+    @apply absolute hidden overflow-visible z-[2000] opacity-0 invisible;    
+}
+
+.sub-submenu{
+    @apply absolute hidden overflow-visible z-[2000] opacity-0 invisible;
+}
+
+.container-submenu:hover .submenu {
+    @apply flex flex-col opacity-100 visible;
+}
+
+
+
+
+
+
+.container-menu{
+    @apply w-[98px]
+}
+
+.container-menu:hover .main-nav{
+    @apply flex
+}
+
+.nav-bar {
+    @apply flex justify-center lg:text-black text-white lg:bg-white bg-[#57071f] p-1;
+}
+
+.main-nav{
+    @apply hidden
+}
+
+.menu,
+.submenu {
+    @apply list-none p-0 m-0;
+}
+
+.menu {
+    @apply lg:right-[37.5%] right-[0%] lg:w-[25%] w-[45%] absolute bg-white z-[1000];
+}
+
+.container-subsubmenu:hover .sub-submenu {
+    @apply flex flex-col opacity-100 visible;
+}
+
+.container-subsubmenu .sub-submenu .menu__linkBurger{
+    @apply bg-[#c4b391] text-black;
+}
+
+.submenu .menu__item .menu__linkBurger{
+    @apply bg-[#b2a185] text-black;
+}
+
+
+.container-subsubmenu{
+    @apply relative;
+}
+
+
+.menu__linkBurger {
+    @apply flex justify-center p-2 text-lg bg-[#DDC9A3];
+    text-decoration: none;
+}
+
+.menu__SubBurger {
+    @apply flex justify-center items-center text-lg bg-[#b2a185];
+    text-decoration: none;
+}
+
+.submenu-btn{
+    @apply cursor-pointer 
+}
+
+.menu-options{
+    @apply py-4 px-3 text-lg font-medium
+}
+
+.menu-options:hover{
+    @apply bg-[#890E33] text-white
+}
+
+
+.activado{
+    font-weight: bold;
+    color: #AB0433;
+  }

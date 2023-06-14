@@ -1,0 +1,62 @@
+version: "3.9"
+networks:
+  docker-sectur:
+    driver: bridge
+  npm-nw: 
+    external: true
+services:
+  frontend-sectur:
+    container_name: frontend-app
+    build:
+      context: ./frontend-sectur
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend-sectur:/app
+    restart: always
+    links:
+      - backend-sectur
+    networks:
+      - npm-nw
+      - docker-sectur
+  backend-sectur:
+    container_name: backend-app
+    build:
+      context: ./backend-secturMapH
+      dockerfile: Dockerfile.dev
+    ports: 
+      - "4000:4000"
+    volumes:
+      - ./backend-secturMapH:/app
+    restart: always
+    networks:
+      - npm-nw
+      - docker-sectur
+    links:
+      - postgres
+  # nginx:
+  #   build: ./nginx
+  #   ports: 
+  #     - "80:80"
+  #   links: 
+  #     - backend-sectur
+  #     - frontend-sectur
+  #   restart: always
+  #   networks:
+  #     - docker-sectur
+  postgres:
+    image: postgres
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=enoc-sec
+      - POSTGRES_PASSWORD=pisa0708
+      - POSTGRES_DB=root
+    networks:
+      - docker-sectur
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data: 

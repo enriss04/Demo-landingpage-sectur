@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css?family=Ranchers');
+@import url('https://fonts.googleapis.com/css?family=Chewy');
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+@import url('https://fonts.googleapis.com/css?family=Acme');
+@import url('https://fonts.googleapis.com/css?family=Vollkorn');
+
+
+.PageTitle1{
+    font-family: 'Ranchers';
+}
+
+.PageTitle2{
+    font-family: 'Chewy';
+}
+
+.PageTitle3{
+    font-family: 'Righteous';
+}
+
+
+.PageText1{
+    font-family: 'Acme';
+}
+
+.PageText2{
+    font-family: 'Vollkorn';
+}
+
+
+body{
+    @apply bg-[#F9F9F9]
+}

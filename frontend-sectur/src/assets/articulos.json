@@ -1,0 +1,181 @@
+[ 
+    {
+        "ID_Articulo":1,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Más de 740 MDP en Derrama Económica Deja Último Fin de Semana Largo Del 2022"
+    },
+    {
+        "ID_Articulo":2,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Sinergia con la Academia"
+    },
+    {
+        "ID_Articulo":3,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Con éxito se realizó el primer Tour del Sol Taxco 2022"
+    },
+    {
+        "ID_Articulo":4,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Cumbre Deportiva Guerrero 2022 - Octava Copa Acapulco de Taekwondo"
+    },
+    {
+        "ID_Articulo":5,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Ixtapa Zihuatanejo es Lugar Sede de la Copa Guerrero 2022 en Voleibol de Playa"
+    },
+    {
+        "ID_Articulo":6,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Entrega de Constancias del Registro Estatal de Turismo (RET)"
+    },
+    {
+        "ID_Articulo":7,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Arrancó la Cumbre Deportiva Guerrero 2022 en Taxco de Alarcón"
+    },
+    {
+        "ID_Articulo":8,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Presenta el Gobierno de Evelyn Salgado la Cumbre Deportiva en Guerrero"
+    },
+    {
+        "ID_Articulo":9,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Estrena Guerrero Nuevo Vuelo Para Conectar Acapulco con CDMX desde el AIFA"
+    },
+    {
+        "ID_Articulo":10,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Convocatoria Reconocimientos Transformando el Turismo Guerrero 2022"
+    },
+    {
+        "ID_Articulo":11,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Nueva Ruta Aérea Desde el AIFA con Destino a Acapulco"
+    },
+    {
+        "ID_Articulo":12,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Capacitación en Materia de Ética y Control Interno"
+    },
+    {
+        "ID_Articulo":13,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Resultados Temporada Vacacional Verano 2022"
+    },
+    {
+        "ID_Articulo":14,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Asiste Titular de SECTUR Guerrero a Sesión del Colegio de Licenciados en Turismo"
+    },
+    {
+        "ID_Articulo":15,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Excelentes Registros de Ocupación Hotelera en los Destinos de Guerrero"
+    },
+    {
+        "ID_Articulo":16,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"SECTUR GUERRERO presenta avances del Tianguis Turístico México 2022 en Acapulco"
+    },
+    {
+        "ID_Articulo":17,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Guerrero con buenas expectativas para Semana Santa 2022"
+    },
+    {
+        "ID_Articulo":18,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Llegan Vuelos Internacionales a Ixtapa Zihuatanejo Con Inicio de Temporada Invernal"
+    },
+    {
+        "ID_Articulo":19,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Llega el Crucero Norwegian Encore al Puerto de Acapulco, el Tercero de la Temporada y Uno de los Más Grandes de los Últimos 10 años"
+    },
+    {
+        "ID_Articulo":20,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Destinos Turísticos de Guerrero Favoritos para Vacacionar del Turismo Nacional y Extranjero"
+    },    {
+        "ID_Articulo":21,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Inauguración del Primer Congreso de Desarrollo de Negocios, Mantenimiento Industrial, Tecnologías de la Información y Gastronomía, como parte de los festejos del 9° Aniversario de la Universidad Tecnológica de Acapulco"
+    },
+    {
+        "ID_Articulo":22,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Inicia 𝐓𝐞𝐦𝐩𝐨𝐫𝐚𝐝𝐚 de cruceros octubre 2022-𝐦𝐚𝐲𝐨 2023 en los destinos de Guerrero"
+    },
+    {
+        "ID_Articulo":23,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"La secretaría de turismo de guerrero a través de la subsecretaría de servicios turísticos entregó al hotel banyan tree el distintivo"
+    },
+    {
+        "ID_Articulo":24,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Durante la 𝐭𝐞𝐦𝐩𝐨𝐫𝐚𝐝𝐚 baja de 𝐭𝐮𝐫𝐢𝐬𝐦𝐨 la 𝐂𝐮𝐦𝐛𝐫𝐞 deporte contribuye a 𝐦𝐞𝐣𝐨𝐫𝐚𝐫 los í𝐧𝐝𝐢𝐜𝐞𝐬 de 𝐨𝐜𝐮𝐩𝐚𝐜𝐢ó𝐧 hotelera en Guerrero"
+    },
+    {
+        "ID_Articulo":25,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Se reunió Santos Ramírez Cuevas con Integrantes del Frente de Defensa de la Zona Federal"
+    },
+    {
+        "ID_Articulo":26,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Genera gobierno de Guerrero las condiciones para acrecentar la inversión inmobiliaria"
+    },
+    {
+        "ID_Articulo":27,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Presenta Sectur Guerrero decálogo del buen prestador de servicios turísticos Rumbo al Tianguis Turístico México 2022 en Acapulco"
+    },
+    {
+        "ID_Articulo":28,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Recibe Guerrero casi medio millón de visitantes en la primera temporada turística del año: Sectur"
+    },
+    {
+        "ID_Articulo":29,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Llega el Crucero Seven Seas Mariner con 277 pasajeros y 426 tripulantes, procedentes de Puntarenas, Costa Rica"
+    },
+    {
+        "ID_Articulo":30,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Más de 200 mil turistas disfrutaron de las playas de Guerrero y sus destinos turísticos como Acapulco, Ixtapa-Zihuatanejo y Taxco de Alarcón"
+    },
+    {
+        "ID_Articulo":31,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Guerrero contará con dos nuevos vuelos directos desde Puebla a Acapulco e Ixtapa Zihuatanejo"
+    },
+    {
+        "ID_Articulo":32,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Deportistas de 28 países visitan Acapulco durante el IRONMAN 70.3 Acapulco Riviera Diamante"
+    },
+    {
+        "ID_Articulo":33,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"L'Etape del Tour de France fue todo un éxito en su sede emblemática Acapulco"
+    },
+    {
+        "ID_Articulo":34,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Más de 92 mil turistas visitaron Guerrero durante el segundo fin de semana largo del año: Secretaría de Turismo"
+    },
+    {
+        "ID_Articulo":35,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Listos Guerrero para el segundo din de 𝐬𝐞𝐦𝐚𝐧𝐚 largo de 𝐚ñ𝐨 que 𝐜𝐨𝐦𝐩𝐫𝐞𝐧𝐝𝐞𝐫á del 18 al 21 de 𝐦𝐚𝐫𝐳𝐨"
+    },
+    {
+        "ID_Articulo":36,
+        "Ima_Articulo":"noimage.png",
+        "Titulo_Articulo":"Con éxito concluyó la edición 29 del Abierto Mexicano de Tenis, realizado en Acapulco"
+    }
+]

@@ -1,0 +1,136 @@
+@import './index.css';
+
+.content {
+    position: absolute; /* Position the background text */
+    bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(61, 71, 83, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+    width: 100%; /* Full width */
+    padding: 20px; /* Some padding */
+}
+
+
+
+body.active-modal-sec {
+    overflow-y: hidden;
+}
+
+body.active-modal-orga {
+    overflow-y: hidden;
+}
+
+body.active-modal-Message {
+  overflow-y: hidden;
+}
+
+.ContenedorMensaje .overlay-MessageImg{
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  background: rgba(31, 30, 30, 0.8);
+}
+
+.modal-MessageImg {
+  @apply top-[50%] left-[50%];
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: white;
+}
+
+
+
+.modal, .overlay-image {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay-image {
+    background: rgba(49,49,49,0.7);
+}
+
+.modal-content {
+    @apply xl:top-[50%] top-[35%] left-[50%];
+    position: absolute;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: white;
+    border-radius: 3px;
+}
+
+
+
+
+/* Transform a basic list into a customized list group */
+ul.list-group {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  ul.list-group li {
+    margin-top: -1px; /* Prevent double borders */
+    padding-left: 40px;
+    padding-right: 40px;
+
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  
+  /* Style badges inside the list group */
+  ul.list-group .badge {
+    background-color: #AB2241;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 20%;
+    padding: 4px 8px;
+    text-align: center;
+    margin-right: 16px;
+  }
+
+  .Doc-Card{
+    @apply flex flex-row h-28 md:w-96 w-full bg-[#dfe4ea] rounded-3xl my-4 shadow-lg;
+    background: linear-gradient(#dfe4ea, #dfe4ea 50%, #252525 50%, #252525);
+    background-size: 100% 200%;
+    /*trasition effect for background*/
+    transition: background 0.4s;
+    border: 2px solid #880E33;
+  }
+  
+  .Title-DocCard{
+    @apply font-medium text-[#414040] text-2xl;    
+  }
+
+  .Text-DocCard{
+    @apply font-semibold text-lg text-[rgb(158,52,55)] mr-2;
+  }
+
+
+
+  .Doc-Image{
+    @apply flex justify-center w-36 rounded-2xl;
+
+  }
+
+  .Doc-Card:hover {
+    background-position: 100% 100%;
+    border: 2px solid black;
+  }
+
+  .Doc-Card:hover .Text-DocCard{
+    @apply text-white
+  }
+
+  .Doc-Card:hover .Title-DocCard{
+    /*-webkit-text-stroke: 1px black;*/
+    color: white; 
+  }

@@ -1,0 +1,10 @@
+.IMG_Section {
+    vertical-align: middle;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+}
+
+.CardStyle{
+    @apply hover:bg-[#eeeeee] hover:scale-105 duration-300 transition ease-in-out hover:-translate-y-1 cursor-pointer;
+}

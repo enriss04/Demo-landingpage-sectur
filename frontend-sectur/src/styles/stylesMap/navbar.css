@@ -1,0 +1,9 @@
+@import './index.css';
+
+.NormalLogo{
+    @apply grid space-x-6 my-3 grid-flow-row justify-items-center place-content-center
+}
+
+.image-sec{
+   @apply w-5/12 ml-6
+}

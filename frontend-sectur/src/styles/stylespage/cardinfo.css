@@ -1,0 +1,43 @@
+.iconsDPrin {
+    @apply lg:w-11 w-full
+}
+  
+.ContainerLogoDPrin {
+    @apply h-full w-12 flex justify-center;
+}
+
+.MainContainerDPrin:hover .ContainerWordDPrin {
+    width: 335px;
+}
+.MainContainerDPrin:hover .overlayDPrin {
+    width: 100%;
+}
+
+
+
+.ContainerWordDPrin {
+    width: 0px;
+    position: relative;
+    @apply h-full;
+
+}
+
+.overlayDPrin {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    width: 0;
+    height: 80px;
+    @apply flex flex-col justify-center ml-3  text-justify;
+}
+
+.TitleDPrin{ 
+    @apply text-left text-[#414040];
+}
+
+
+.TextDPrin{ 
+    @apply text-left text-[rgb(104,106,109)];
+}

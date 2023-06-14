@@ -1,0 +1,15 @@
+@import './index.css';
+
+.information-hotel{
+    @apply flex flex-col mt-3
+}
+
+.form-info{
+    @apply  bg-sky-200 rounded-3xl w-96
+}
+
+.button-trans{
+    @apply flex justify-center mt-6
+}
+
+.pointer{cursor:pointer;}

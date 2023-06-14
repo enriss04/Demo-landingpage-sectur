@@ -1,0 +1,16 @@
+.ContainerInformation{
+    @apply flex flex-col ml-[6px] mt-6 w-72;
+}
+
+.ImageHotel{
+    @apply w-full h-56;
+}
+
+.NombreHotel{
+    @apply mt-2 mb-2 text-xl text-center w-full text-black font-medium underline decoration-[#ff5252] decoration-2 underline-offset-2;
+}
+
+.HotelInformation{
+    @apply text-base text-black font-light text-justify;
+}
+

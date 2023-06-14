@@ -1,0 +1,77 @@
+@import '../index.css';
+
+
+.ArticleCard {
+  @apply xl:w-[490px] lg:w-[430px] md:w-[400px] sm:w-[385px] w-[365px] xl:h-[180px] lg:h-[180px] md:h-[180px] sm:h-[180px] h-[160px] flex justify-center items-center rounded-2xl transition ease-in-out cursor-pointer delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#e7d2a4] duration-300 bg-[#c2a870]; 
+}
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.2s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .flip-card-front {
+    @apply flex rounded-2xl shadow-inner;
+    background-color: #ddc17b;
+    color: black;
+    margin: 0 auto;
+  }
+  
+  .flip-card-back {
+    @apply w-full flex justify-center items-center rounded-2xl shadow-inner;
+    background-color: #edcf8f;
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+  .textStyle p{
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+  }
+
+  .btn {
+    @apply w-48 h-14;
+  }
+  
+  .btn2 {
+    @apply w-40 h-10;
+  }
+
+  .btn1 {
+    @apply xl:w-[1000px] w-[355px] h-56;
+  }
+
+  .btn-primary {
+    font-size: 13px;
+    color: #3d3d3d;
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px solid #880E33;
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .btn-primary:hover {
+    color: #FFF;
+    background: #880E33;
+    border: 2px solid #880E33;
+  }
