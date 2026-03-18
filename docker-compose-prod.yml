@@ -1,0 +1,33 @@
+services:
+  demo_backend_landing_sectur:
+    build:
+      context: ./backend-sectur
+      dockerfile: Dockerfile.prod
+    env_file:
+      - .env
+    image: backend-landing-sectur:latest
+    container_name: demo_backend_landing_sectur
+    ports:
+      - "8010:80"
+    networks:
+      - net-tecnomex
+
+  demo_frontend_landing_sectur:
+    build:
+      context: ./frontend-sectur
+      dockerfile: Dockerfile.prod
+      args:
+        - REACT_APP_URL_BACKEND=${REACT_APP_URL_BACKEND}
+        - REACT_APP_GET_IMG_ARTICULO=${REACT_APP_GET_IMG_ARTICULO}
+        - REACT_APP_GET_IMG_HOTEL=${REACT_APP_GET_IMG_HOTEL}
+        - REACT_APP_GET_IMG_INFOARTICULO=${REACT_APP_GET_IMG_INFOARTICULO}
+    image: frontend-landing-sectur:latest
+    container_name: demo_frontend_landing_sectur
+    ports:
+      - "4010:80"
+    networks:
+      - net-tecnomex
+
+networks:
+  net-tecnomex:
+    external: true
