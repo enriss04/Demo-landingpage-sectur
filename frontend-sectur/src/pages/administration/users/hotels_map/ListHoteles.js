@@ -101,7 +101,7 @@ export default function ListHoteles() {
             </div>
 
             <div className='w-[550px]'>
-                <div className='fixed top-[50%] left-7 h-[270px] w-3/12 bg-[#E7D2AC] rounded-lg shadow-lg' id='SelectCard'>
+                <div className='fixed top-[30%] left-7 h-[270px] w-3/12 bg-[#E7D2AC] rounded-lg shadow-lg' id='SelectCard'>
 
                     <div className='ml-4 my-8'>
                         <p className='my-2 text-lg font-serif'>Agregar nueva ubicación</p>

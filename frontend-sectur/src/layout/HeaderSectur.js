@@ -1,149 +1,146 @@
-import '../styles/headersec.css'
-import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
-import wheel from "../assets/assetsMap/icons/wheel.png"
+import { useState, useEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import wheel from "../assets/assetsMap/icons/wheel.png";
 
-function HeaderSectur() {
+const HeaderSectur = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const location = useLocation();
 
-  const [BurgerActive, setBurgerActive] = useState(false);
+  // Cerrar todo al cambiar de página
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setActiveSubmenu(null);
+  }, [location]);
+
+  const navLinks = [
+    { name: 'Inicio', path: '/' },
+    { name: 'Artículos', path: '/Articulos' },
+    {
+      name: 'Promoción',
+      submenu: [
+        { name: 'Mercadotecnia', path: 'https://costachica.travel/', external: true },
+        { name: 'Turismo social', path: '/Mapa', icon: wheel },
+      ]
+    },
+    { name: 'Transparencia', path: '/Transparencia' },
+  ];
 
   return (
-    <div>
-      <div className='lg:flex hidden bg-[#e7d2ac] w-full'>
-        <div className='flex w-5/12'>
-          <div className='ml-8 py-3 text-[#333333] font-medium'>
-            <p className='xl:text-3xl text-xl font-medium PageTitle1'>SECRETARÍA DE TURISMO</p>
+    <header className="relative z-[5000] w-full bg-[#e7d2ac] text-[#333333] shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
+        <div className="flex justify-between items-center h-16 lg:h-20">
+
+          {/* Título Principal */}
+          <div className="flex-shrink-0">
+            <h1 className="text-xl lg:text-2xl font-bold tracking-tighter PageTitle1">
+              SECRETARÍA DE TURISMO
+            </h1>
           </div>
-        </div>
 
-        <div className='w-full mx-3'>
-          <div>
-            <nav>
-              <ul className='flex justify-end PageTitle3'>
-                <li><NavLink to="/" className={({ isActive }) => { return isActive ? "activado" : ""; }}><div className="menu-options">Inicio</div></NavLink></li>
-                <li><NavLink to="/Articulos" className={({ isActive }) => { return isActive ? "activado" : ""; }}><div className="menu-options">Artículos</div></NavLink></li>
-                <li><NavLink to="/Directorio" className={({ isActive }) => { return isActive ? "activado" : ""; }}><div className="menu-options">Directorio</div></NavLink></li>
-                <li className='container-subsubmenu'>
-                  <div className="menu-options cursor-pointer">Promoción</div>
+          {/* --- NAVEGACIÓN ESCRITORIO --- */}
+          <nav className="hidden lg:flex items-center h-full">
+            <ul className="flex h-full items-center space-x-1">
+              {navLinks.map((link) => (
+                <li key={link.name} className="relative group h-full flex items-center">
+                  {link.path ? (
+                    <NavLink
+                      to={link.path}
+                      className={({ isActive }) =>
+                        `px-4 py-2 transition-all hover:text-amber-800 font-medium ${isActive ? "border-b-2 border-amber-900" : ""}`
+                      }
+                    >
+                      {link.name}
+                    </NavLink>
+                  ) : (
+                    <div className="px-4 py-2 cursor-pointer flex items-center hover:text-amber-800 font-medium">
+                      {link.name}
+                      <svg className="ml-1 w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                    </div>
+                  )}
 
-                  <ul className='sub-submenu  top-[100%] right-[0%] w-[180%]'>
-                    <li className="menu__item container-submenu">
-                      <a href='https://costachica.travel/' target='_blank' rel="noopener noreferrer">
-                        <div className="menu__link cursor-pointer">
-                          Mercadotecnia
-                        </div>
-                      </a>
-                    </li>
-
-                    <li className="menu__item container-submenu">
-                      <div className="menu__link cursor-pointer">
-                        Turismo social
-                      </div>
-                      <ul className="submenu top-[0%] right-[100%] w-[100%]">
-                        <li className="menu__item" onClick={(e) => setBurgerActive(false)} >
-                          <NavLink to="/Mapa" className={({ isActive }) => { return isActive ? "activado" : ""; }}>
-                            <div className="menu__link">Hoteles
-                              <img className="w-7 ml-2" loading="lazy" src={wheel} alt="ImagenGro" />
-                            </div>
-                          </NavLink>
+                  {/* Primer Submenú (Promoción) */}
+                  {link.submenu && (
+                    <ul className="absolute left-0 top-full w-52 bg-white shadow-xl opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 border-t-2 border-amber-700 py-2">
+                      {link.submenu.map((sub) => (
+                        <li key={sub.name} className="relative group/item">
+                          {sub.external ? (
+                            <a href={sub.path} target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-amber-50 text-sm transition-colors">
+                              {sub.name}
+                            </a>
+                          ) : (
+                            <NavLink
+                              to={sub.path}
+                              className="flex items-center px-4 py-3 hover:bg-amber-50 text-sm transition-colors"
+                            >
+                              {sub.name}
+                            </NavLink>
+                          )}
                         </li>
-                      </ul>
-                    </li>
-                    
-                    <li className="menu__item container-submenu">
-                      <div className="menu__link cursor-pointer">
-                        Turismo internacional
-                      </div>
-                      <ul className="submenu top-[0%] right-[100%] w-[100%]">
-                        <li className="menu__item" onClick={(e) => setBurgerActive(false)} >
-                          <NavLink to="/" className={({ isActive }) => { return isActive ? "activado" : ""; }}>
-                            <div className="menu__link">Crucero
-                            </div>
-                          </NavLink>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
+                      ))}
+                    </ul>
+                  )}
                 </li>
-                <li><NavLink to="/Planeacion" className={({ isActive }) => { return isActive ? "activado" : ""; }}><div className="menu-options">Planeación</div></NavLink></li>
-                <li><NavLink to="/Transparencia" className={({ isActive }) => { return isActive ? "activado" : ""; }}><div className="menu-options">Transparencia</div></NavLink></li>
-                <li><NavLink to="/Juridico" className={({ isActive }) => { return isActive ? "activado" : ""; }}><div className="menu-options">Juridico</div></NavLink></li>
-              </ul>
-            </nav>
-          </div>
+              ))}
+            </ul>
+          </nav>
+
+          {/* --- BOTÓN MÓVIL --- */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden p-2 text-amber-900"
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isMenuOpen
+                ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+              }
+            </svg>
+          </button>
         </div>
       </div>
 
-
-      <div className='bg-[#DDC9A3] w-full lg:hidden flex justify-end'>
-        <div className='ml-2 flex items-center w-full'>
-          <p className='text-[#333333] font-medium PageTitle1 text-xl'>SECRETARÍA DE TURISMO</p>
-        </div>
-
-        <div className='container-menu z-[2000]'>
-          <span onClick={(e) => setBurgerActive(true)} className="nav-bar cursor-pointer">
-            <svg className="w-10 h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-          </span>
-          {BurgerActive && (
-            <nav className="main-nav">
-              <ul className="menu PageTitle3">
-                <li className="menu__item" onClick={(e) => setBurgerActive(false)} ><NavLink to="/" className={({ isActive }) => { return isActive ? "activado" : ""; }}><div className="menu__linkBurger">Inicio</div></NavLink></li>
-                <li className="menu__item" onClick={(e) => setBurgerActive(false)} ><NavLink to="/Articulos" className={({ isActive }) => { return isActive ? "activado" : ""; }}><div className="menu__linkBurger">Artículos</div></NavLink></li>
-                <li className="menu__item" onClick={(e) => setBurgerActive(false)} ><NavLink to="/Directorio" className={({ isActive }) => { return isActive ? "activado" : ""; }}><div className="menu__linkBurger">Directorio</div></NavLink></li>
-                <li className='container-subsubmenu'>
-                  <div className="menu__linkBurger">Promoción</div>
-                  <ul className='sub-submenu top-[0%] right-[100%] w-[110%] PageText1'>
-
-                    <li className="menu__item container-submenu">
-                      <a href='https://costachica.travel/' target='_blank' rel="noopener noreferrer">
-                        <div className="menu__linkBurger cursor-pointer">
-                          Mercadotecnia
+      {/* --- MENÚ MÓVIL --- */}
+      <div className={`lg:hidden overflow-hidden transition-all duration-300 ${isMenuOpen ? "max-h-screen bg-[#DDC9A3]" : "max-h-0"}`}>
+        <nav className="px-4 pt-2 pb-8 space-y-1">
+          {navLinks.map((link) => (
+            <div key={link.name} className="border-b border-amber-200/50">
+              {link.path ? (
+                <NavLink to={link.path} className="block py-4 font-bold">{link.name}</NavLink>
+              ) : (
+                <>
+                  <button
+                    onClick={() => setActiveSubmenu(activeSubmenu === link.name ? null : link.name)}
+                    className="w-full flex justify-between items-center py-4 font-bold"
+                  >
+                    {link.name} <span>{activeSubmenu === link.name ? '−' : '+'}</span>
+                  </button>
+                  {activeSubmenu === link.name && (
+                    <div className="pl-4 pb-4 space-y-2">
+                      {link.submenu.map(sub => (
+                        <div key={sub.name}>
+                          {sub.external ? (
+                            <a href={sub.path} className="block py-2 text-sm opacity-80">{sub.name}</a>
+                          ) : (
+                            <NavLink
+                              to={sub.path}
+                              className="block py-2 text-sm opacity-80"
+                            >
+                              {sub.name}
+                            </NavLink>
+                          )}
                         </div>
-                      </a>
-                    </li>
-
-                    <li className="menu__item container-submenu">
-                      <div className="menu__linkBurger cursor-pointer">
-                        Turismo social
-                      </div>
-                      <ul className="submenu top-[100%] right-[0%] w-[100%]">
-                        <li className="menu__item PageText2" onClick={(e) => setBurgerActive(false)} >
-                          <NavLink to="/Mapa" className={({ isActive }) => { return isActive ? "activado" : ""; }}>
-                            <div className="menu__SubBurger">Hoteles
-                              <img className="w-5 ml-2" loading="lazy" src={wheel} alt="ImagenGro" />
-                            </div>
-                          </NavLink>
-                        </li>
-                      </ul>
-                    </li>
-
-                    <li className="menu__item container-submenu">
-                      <div className="menu__linkBurger cursor-pointer">
-                        Turismo internacional
-                      </div>
-                      <ul className="submenu top-[100%] right-[0%] w-[100%]">
-                        <li className="menu__item PageText2" onClick={(e) => setBurgerActive(false)} >
-                          <NavLink to="/" className={({ isActive }) => { return isActive ? "activado" : ""; }}>
-                            <div className="menu__SubBurger">Crucero</div>
-                          </NavLink>
-                        </li>
-                      </ul>
-                    </li>
-
-                  </ul>
-                </li>
-                <li className="menu__item" onClick={(e) => setBurgerActive(false)} ><NavLink to="/Planeacion" className={({ isActive }) => { return isActive ? "activado" : ""; }}><div className="menu__linkBurger">Planeación</div></NavLink></li>
-                <li className="menu__item" onClick={(e) => setBurgerActive(false)} ><NavLink to="/Transparencia" className={({ isActive }) => { return isActive ? "activado" : ""; }}><div className="menu__linkBurger">Transparencia</div></NavLink></li>
-                <li className="menu__item" onClick={(e) => setBurgerActive(false)} ><NavLink to="/Juridico" className={({ isActive }) => { return isActive ? "activado" : ""; }}><div className="menu__linkBurger">Juridico</div></NavLink></li>
-              </ul >
-            </nav>
-          )
-          }
-        </div>
+                      ))}
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+          ))}
+        </nav>
       </div>
+    </header>
+  );
+};
 
-    </div>
-  )
-}
-
-export default HeaderSectur
+export default HeaderSectur;
