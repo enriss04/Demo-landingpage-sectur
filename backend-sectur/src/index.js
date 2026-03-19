@@ -8,10 +8,10 @@ const app = express();
 
 const corsOptions = {
   origin: [
-    'https://demolandingsectur.devsmex.com',    // Tu dominio real
-    'http://localhost:3000',                    // Para pruebas locales
+    'https://demolandingsectur.devsmex.com',
+    'http://localhost:3000',
   ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
 };
 
