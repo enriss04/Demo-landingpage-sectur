@@ -11,6 +11,7 @@ services:
       - "8010:80"
     networks:
       - net-tecnomex
+      - postgresql_devsmex_net
 
   demo_frontend_landing_sectur:
     build:
@@ -30,4 +31,6 @@ services:
 
 networks:
   net-tecnomex:
+    external: true
+  postgresql_devsmex_net:
     external: true
