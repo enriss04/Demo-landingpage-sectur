@@ -6,7 +6,17 @@ const taskRoutes = require('./routes/task.routes');
 const path = require('path');
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: [
+    'https://demolandingsectur.devsmex.com',    // Tu dominio real
+    'http://localhost:3000',                    // Para pruebas locales
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+};
+
+app.use(cors(corsOptions));
 app.use(morgan('dev'));
 app.use(express.json());
 
@@ -24,6 +34,6 @@ app.use((err, req, res, next) => {
     })
 })
 
-app.listen(4005);
+app.listen(3000);
 
 console.log("sevidor")
