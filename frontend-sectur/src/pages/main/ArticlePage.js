@@ -13,7 +13,14 @@ export default function ArticlePage() {
   }])
 
   const loadArticles = async () => {
-    const response = await fetch(process.env.REACT_APP_URL_BACKEND + '/consulta_articulos')
+    const response = await fetch(process.env.REACT_APP_URL_BACKEND + '/consulta_articulos', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      mode: 'cors',
+    })
     const data = await response.json()
     if (data.message) {
       alert(data.message);

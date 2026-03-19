@@ -12,8 +12,7 @@ const corsOptions = {
     'http://localhost:3000',                    // Para pruebas locales
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
 };
 
 app.use(cors(corsOptions));
@@ -29,9 +28,9 @@ app.use('/getImagenInformacionArticulo', express.static(path.join(__dirname + '/
 app.use('/getImagenHotel', express.static(path.join(__dirname + '/images/img_Hotels')));
 
 app.use((err, req, res, next) => {
-    return res.status(400).json({
-        message: err.message
-    })
+  return res.status(400).json({
+    message: err.message
+  })
 })
 
 app.listen(3000);

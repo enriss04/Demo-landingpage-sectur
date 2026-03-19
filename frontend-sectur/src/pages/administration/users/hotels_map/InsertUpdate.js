@@ -46,6 +46,8 @@ export default function InsertUpdate() {
                                     "Content-Type": "application/json",
                                 },
                                 body: JSON.stringify(InformationU),
+                                method: 'GET',
+                                mode: 'cors',
                             });
 
                             const data = await response.json()
@@ -57,7 +59,14 @@ export default function InsertUpdate() {
 
                         } else {
 
-                            const response = await fetch(process.env.REACT_APP_URL_BACKEND + `/select/${params.id}`)
+                            const response = await fetch(process.env.REACT_APP_URL_BACKEND + `/select/${params.id}`,{
+                                method: 'GET',
+                                headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                                },
+                                mode: 'cors',
+                            })
                             const data = await response.json()
                             if (data.message) {
                                 alert(data.message);
@@ -68,6 +77,7 @@ export default function InsertUpdate() {
                                 method: "POST",
                                 body: JSON.stringify({ "nameImg": data.src_imagen }),
                                 headers: { "Content-Type": "application/json" },
+                                mode: 'cors',
                             })
                             const dataIMG = responseDeleteIMG.json()
                             if (dataIMG.message) {
@@ -81,6 +91,7 @@ export default function InsertUpdate() {
                                     "Content-Type": "application/json",
                                 },
                                 body: JSON.stringify(InformationU),
+                                mode: 'cors',
                             });
                             const dataUpdate = await responseUpdate.json()
 
@@ -94,6 +105,7 @@ export default function InsertUpdate() {
                             const responseIMG = await fetch(process.env.REACT_APP_URL_BACKEND + '/guardar_imagen_hotel', {
                                 method: 'POST',
                                 body: formdata,
+                                mode: 'cors',
                             })
                             const dataIMGSave = await responseIMG.json()
 
@@ -112,6 +124,7 @@ export default function InsertUpdate() {
                             method: 'POST',
                             body: JSON.stringify(InformationU),
                             headers: { "Content-Type": "application/json" },
+                            mode: 'cors',
                         });
                         const data = await response.json()
                         if (data.message) {
@@ -125,6 +138,7 @@ export default function InsertUpdate() {
                         const responseIMG = await fetch(process.env.REACT_APP_URL_BACKEND + '/guardar_imagen_hotel', {
                             method: 'POST',
                             body: formdata,
+                            mode: 'cors',
                         })
                         const dataIMG = await responseIMG.json()
                         if (dataIMG.message) {
@@ -156,7 +170,14 @@ export default function InsertUpdate() {
     }
 
     const loadHotel = async (id) => {
-        const response = await fetch(process.env.REACT_APP_URL_BACKEND + `/select/${id}`)
+        const response = await fetch(process.env.REACT_APP_URL_BACKEND + `/select/${id}`, {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+            },
+            mode: 'cors',
+        })
         const data = await response.json()
         if (data.message) {
             alert(data.message);

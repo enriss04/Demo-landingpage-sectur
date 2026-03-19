@@ -22,7 +22,14 @@ export default function ListArticles() {
     };
 
     const loadArticles = async () => {
-        const response = await fetch(process.env.REACT_APP_URL_BACKEND + '/consulta_articulos')
+        const response = await fetch(process.env.REACT_APP_URL_BACKEND + '/consulta_articulos', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            mode: 'cors',
+        })
         const data = await response.json()
         if (data.message) {
             alert(data.message);
@@ -32,7 +39,14 @@ export default function ListArticles() {
     }
 
     const DeleteArticle = async (ID_Article) => {
-        const responseInfo = await fetch(process.env.REACT_APP_URL_BACKEND + `/informacion_articulo/${ID_Article}`)
+        const responseInfo = await fetch(process.env.REACT_APP_URL_BACKEND + `/informacion_articulo/${ID_Article}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            mode: 'cors',
+        })
         const InformacionArti = await responseInfo.json()
 
         if (InformacionArti.message) {
@@ -40,7 +54,14 @@ export default function ListArticles() {
             return
         }
 
-        const responseIMGs = await fetch(process.env.REACT_APP_URL_BACKEND + `/imagenes_articulo/${InformacionArti.id_informacionart}`)
+        const responseIMGs = await fetch(process.env.REACT_APP_URL_BACKEND + `/imagenes_articulo/${InformacionArti.id_informacionart}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            mode: 'cors',
+        })
         const InformacionIMGs = await responseIMGs.json()
 
         if (InformacionIMGs.message) {
@@ -53,6 +74,7 @@ export default function ListArticles() {
                 method: "POST",
                 body: JSON.stringify({ "nameImg": InformacionIMGs[index].imagen_articulo }),
                 headers: { "Content-Type": "application/json" },
+                mode: 'cors',
             })
             const dataIMGdelete = DeleteIMG.json()
 
@@ -64,6 +86,12 @@ export default function ListArticles() {
 
         const IMG_DeleteBD = await fetch(process.env.REACT_APP_URL_BACKEND + `/eliminarIMGinfo/${InformacionArti.id_informacionart}`, {
             method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            mode: 'cors',
+
         })
         const dataName_Delete = await IMG_DeleteBD.json()
 
@@ -74,6 +102,11 @@ export default function ListArticles() {
 
         const InfoDelete = await fetch(process.env.REACT_APP_URL_BACKEND + `/eliminarInfo/${ID_Article}`, {
             method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            mode: 'cors',
         })
         const dataDeleteInfo = await InfoDelete.json()
 
@@ -82,7 +115,14 @@ export default function ListArticles() {
             return
         }
 
-        const responseArt = await fetch(process.env.REACT_APP_URL_BACKEND + `/consulta_articulo/${ID_Article}`)
+        const responseArt = await fetch(process.env.REACT_APP_URL_BACKEND + `/consulta_articulo/${ID_Article}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            mode: 'cors',
+        })
         const ArticuloSec = await responseArt.json()
 
         if (ArticuloSec.message) {
@@ -94,6 +134,7 @@ export default function ListArticles() {
             method: "POST",
             body: JSON.stringify({ "nameImg": ArticuloSec.imagen_articulo }),
             headers: { "Content-Type": "application/json" },
+            mode: 'cors',
         })
         const dataIMGFile = await IMG_File.json()
 
@@ -104,6 +145,11 @@ export default function ListArticles() {
 
         const IMGArt_Delete = await fetch(process.env.REACT_APP_URL_BACKEND + `/eliminarArt/${ArticuloSec.id_articulo}`, {
             method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            mode: 'cors',
         })
         const dataDeleteArticulo = await IMGArt_Delete.json()
 

@@ -92,7 +92,14 @@ export default function InsertUpdate() {
     }
 
     const loadArticulo = async (id) => {
-        const responseArticulo = await fetch(process.env.REACT_APP_URL_BACKEND + `/consulta_articulo/${id}`)
+        const responseArticulo = await fetch(process.env.REACT_APP_URL_BACKEND + `/consulta_articulo/${id}`,{
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+            },
+            mode: 'cors',
+        })
         const dataArticulo = await responseArticulo.json();
 
         if (dataArticulo.message) {
@@ -109,7 +116,14 @@ export default function InsertUpdate() {
             imagen_Articulo: dataArticulo.imagen_articulo
         })
 
-        const responseInformacionArt = await fetch(process.env.REACT_APP_URL_BACKEND + `/informacion_articulo/${id}`)
+        const responseInformacionArt = await fetch(process.env.REACT_APP_URL_BACKEND + `/informacion_articulo/${id}`, {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+            },
+            mode: 'cors',
+        })
         const dataInformacionArt = await responseInformacionArt.json()
 
         if (dataInformacionArt.message) {
@@ -130,7 +144,14 @@ export default function InsertUpdate() {
             Informacion_Articulo: dataInformacionArt.informacion_articulo
         });
 
-        const respon = await fetch(process.env.REACT_APP_URL_BACKEND + `/imagenes_articulo/${dataInformacionArt.id_informacionart}`)
+        const respon = await fetch(process.env.REACT_APP_URL_BACKEND + `/imagenes_articulo/${dataInformacionArt.id_informacionart}`, {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+            },
+            mode: 'cors',
+        })
         const InfoIMG = await respon.json()
 
         if (InfoIMG.message) {
@@ -147,6 +168,7 @@ export default function InsertUpdate() {
             method: 'POST',
             body: JSON.stringify(Articulo),
             headers: { "Content-Type": "application/json" },
+            mode: 'cors',
         });
         const data = await response.json()
 
@@ -161,6 +183,7 @@ export default function InsertUpdate() {
         const IMGsave = await fetch(process.env.REACT_APP_URL_BACKEND + '/guardar_imagen_articulo', {
             method: 'POST',
             body: formdata,
+            mode: 'cors',
         })
         const dataIMG = await IMGsave.json()
 
@@ -195,6 +218,7 @@ export default function InsertUpdate() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(Articulo),
+                mode: 'cors',
             });
             const data = await response.json()
 
@@ -211,7 +235,14 @@ export default function InsertUpdate() {
             setStatusArticulo(true);
 
         } else {
-            const responseArt = await fetch(process.env.REACT_APP_URL_BACKEND + `/consulta_articulo/${params.id}`)
+            const responseArt = await fetch(process.env.REACT_APP_URL_BACKEND + `/consulta_articulo/${params.id}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                mode: 'cors',
+            })
             const ArticuloSec = await responseArt.json()
 
             if (ArticuloSec.message) {
@@ -223,6 +254,7 @@ export default function InsertUpdate() {
                 method: "POST",
                 body: JSON.stringify({ "nameImg": ArticuloSec.imagen_articulo }),
                 headers: { "Content-Type": "application/json" },
+                mode: 'cors',
             })
             const dataIMGdelete = await IMGDeleted.json()
 
@@ -236,6 +268,7 @@ export default function InsertUpdate() {
             const IMGsave = await fetch(process.env.REACT_APP_URL_BACKEND + '/guardar_imagen_articulo', {
                 method: 'POST',
                 body: formdata,
+                mode: 'cors',
             })
             const dataIMGsave = await IMGsave.json()
 
@@ -252,6 +285,7 @@ export default function InsertUpdate() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(Articulo),
+                mode: 'cors',
             });
             const dataUpdateArt = await UpdateArticulo.json()
 
@@ -279,6 +313,7 @@ export default function InsertUpdate() {
                 const IMGsave = await fetch(process.env.REACT_APP_URL_BACKEND + '/guardar_imagenes_articulo', {
                     method: 'POST',
                     body: formdata,
+                    mode: 'cors',
                 })
                 const dataIMGsave = await IMGsave.json()
 
@@ -303,6 +338,7 @@ export default function InsertUpdate() {
             method: 'POST',
             body: JSON.stringify(Information),
             headers: { "Content-Type": "application/json" },
+            mode: 'cors',
         });
         const data = await response.json();
 
@@ -326,6 +362,7 @@ export default function InsertUpdate() {
                     Imagen_Articulo: Images[index].name
                 }),
                 headers: { "Content-Type": "application/json" },
+                mode: 'cors',
             });
             const dataIMG = await NameIMG.json();
 
@@ -336,7 +373,14 @@ export default function InsertUpdate() {
             }
         }
 
-        const respon = await fetch(process.env.REACT_APP_URL_BACKEND + `/imagenes_articulo/${data.id_informacionart}`)
+        const respon = await fetch(process.env.REACT_APP_URL_BACKEND + `/imagenes_articulo/${data.id_informacionart}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            mode: 'cors',
+        })
         const InfoIMG = await respon.json()
 
         if (InfoIMG.message) {
@@ -356,6 +400,7 @@ export default function InsertUpdate() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(Information),
+                mode: 'cors',
             });
             const dataInfo = await ResponseArt.json();
 
@@ -373,7 +418,14 @@ export default function InsertUpdate() {
 
         } else {
 
-            const response = await fetch(process.env.REACT_APP_URL_BACKEND + `/informacion_articulo/${params.id}`)
+            const response = await fetch(process.env.REACT_APP_URL_BACKEND + `/informacion_articulo/${params.id}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                mode: 'cors',
+            })
             const Informacion = await response.json()
 
             if (Informacion.message) {
@@ -381,7 +433,14 @@ export default function InsertUpdate() {
                 return
             }
 
-            const responseIMGs = await fetch(process.env.REACT_APP_URL_BACKEND + `/imagenes_articulo/${Informacion.id_informacionart}`)
+            const responseIMGs = await fetch(process.env.REACT_APP_URL_BACKEND + `/imagenes_articulo/${Informacion.id_informacionart}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                mode: 'cors',
+            })
             const InformacionIMGs = await responseIMGs.json()
 
             if (InformacionIMGs.message) {
@@ -394,6 +453,7 @@ export default function InsertUpdate() {
                     method: "POST",
                     body: JSON.stringify({ "nameImg": InformacionIMGs[index].imagen_articulo }),
                     headers: { "Content-Type": "application/json" },
+                    mode: 'cors',
                 })
                 const dataIMG = await IMG.json();
 
@@ -407,6 +467,12 @@ export default function InsertUpdate() {
             if (StatusInformacion) {
                 const IMG_BD = await fetch(process.env.REACT_APP_URL_BACKEND + `/eliminarIMGinfo/${Informacion.id_informacionart}`, {
                     method: "DELETE",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    mode: 'cors',
+
                 })
                 const dataIMG_BD = await IMG_BD.json();
 
@@ -421,6 +487,7 @@ export default function InsertUpdate() {
                     const IMGsave = await fetch(process.env.REACT_APP_URL_BACKEND + '/guardar_imagenes_articulo', {
                         method: 'POST',
                         body: formdata,
+                        mode: 'cors',
                     })
                     const dataIMGsave = await IMGsave.json();
 
@@ -440,6 +507,7 @@ export default function InsertUpdate() {
                                 Imagen_Articulo: Images[index].name
                             }),
                             headers: { "Content-Type": "application/json" },
+                            mode: 'cors',
                         });
                         const dataIMG = await NameIMG.json();
 
@@ -457,6 +525,7 @@ export default function InsertUpdate() {
                                 "Content-Type": "application/json",
                             },
                             body: JSON.stringify(Information),
+                            mode: 'cors',
                         });
 
                         const dataUpdateArti = await responseArti.json();
@@ -473,7 +542,14 @@ export default function InsertUpdate() {
                             Informacion_Articulo: dataUpdateArti.informacion_articulo
                         });
 
-                        const respon = await fetch(process.env.REACT_APP_URL_BACKEND + `/imagenes_articulo/${dataUpdateArti.id_informacionart}`)
+                        const respon = await fetch(process.env.REACT_APP_URL_BACKEND + `/imagenes_articulo/${dataUpdateArti.id_informacionart}`, {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            mode: 'cors',
+                        })
                         const InfoIMG = await respon.json()
 
                         if (InfoIMG.message) {

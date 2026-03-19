@@ -27,7 +27,14 @@ export default function ListHoteles() {
     };
 
     const loadHotels = async () => {
-        const response = await fetch(process.env.REACT_APP_URL_BACKEND + '/crud')
+        const response = await fetch(process.env.REACT_APP_URL_BACKEND + '/crud', {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+            },
+            mode: 'cors',
+        })
         const data = await response.json()
 
         if (data.message) {
@@ -39,7 +46,14 @@ export default function ListHoteles() {
     }
 
     const handleDelete = async (nameHotel) => {
-        const response = await fetch(process.env.REACT_APP_URL_BACKEND + `/select-hotel/${nameHotel}`)
+        const response = await fetch(process.env.REACT_APP_URL_BACKEND + `/select-hotel/${nameHotel}`, {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+            },
+            mode: 'cors',
+        })
         const data = await response.json()
 
         if (data.message) {
@@ -51,6 +65,7 @@ export default function ListHoteles() {
             method: "POST",
             body: JSON.stringify({ "nameImg": data.src_imagen }),
             headers: { "Content-Type": "application/json" },
+            mode: 'cors',
         })
         const dataIMG = IMGDelete.json()
 
@@ -61,6 +76,11 @@ export default function ListHoteles() {
 
         const IMG_BD = await fetch(process.env.REACT_APP_URL_BACKEND + `/crud/${nameHotel}`, {
             method: "DELETE",
+            headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+            },
+            mode: 'cors',
         })
         const dataIMG_BD = await IMG_BD.json()
 

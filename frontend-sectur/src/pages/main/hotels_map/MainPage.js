@@ -33,7 +33,14 @@ export default function MainPage() {
     const [map, setMap] = useState(null)
 
     const CargarUbicaciones = async () => {
-        const response = await fetch(process.env.REACT_APP_URL_BACKEND + '/crud')
+        const response = await fetch(process.env.REACT_APP_URL_BACKEND + '/crud', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            mode: 'cors',
+        })
         const data = await response.json()
         if (data.message) {
             alert(data.message);
@@ -46,7 +53,14 @@ export default function MainPage() {
     const ShowSingleHotel = async (e, nameHotel) => {
         map.setView([16.84477839135118, -99.87350399983222], 11)
 
-        const singleH = await fetch(process.env.REACT_APP_URL_BACKEND + `/select-hotel/${nameHotel}`)
+        const singleH = await fetch(process.env.REACT_APP_URL_BACKEND + `/select-hotel/${nameHotel}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            mode: 'cors',
+        })
         const data = await singleH.json()
         if (data.message) {
             alert(data.message);
@@ -66,7 +80,14 @@ export default function MainPage() {
     const ShowHotels = async () => {
         map.setView([16.84477839135118, -99.87350399983222], 11)
 
-        const response = await fetch(process.env.REACT_APP_URL_BACKEND + '/crud')
+        const response = await fetch(process.env.REACT_APP_URL_BACKEND + '/crud',{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            mode: 'cors',
+        })
         const data = await response.json()
         if (data.message) {
             alert(data.message);

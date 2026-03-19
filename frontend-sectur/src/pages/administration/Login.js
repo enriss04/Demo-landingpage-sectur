@@ -40,7 +40,14 @@ export default function Login() {
 
     setLoading(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_URL_BACKEND}/validate/${credential.userName},${credential.userPassword}`);
+      const response = await fetch(`${process.env.REACT_APP_URL_BACKEND}/validate/${credential.userName},${credential.userPassword}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        mode: 'cors',
+      });
       const data = await response.json();
 
       if (data.message) {

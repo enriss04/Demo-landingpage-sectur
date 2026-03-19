@@ -18,7 +18,14 @@ export default function PageInfoArticle() {
 
 
     const loadInformation = async (IDArticulo) => {
-        const responseInformacionArt = await fetch(process.env.REACT_APP_URL_BACKEND + `/informacion_articulo/${IDArticulo}`)
+        const responseInformacionArt = await fetch(process.env.REACT_APP_URL_BACKEND + `/informacion_articulo/${IDArticulo}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            mode: 'cors',
+        })
         const dataInformacionArt = await responseInformacionArt.json()
 
         if (dataInformacionArt.message) {
@@ -28,7 +35,14 @@ export default function PageInfoArticle() {
 
         setShowInformation(dataInformacionArt);
 
-        const respon = await fetch(process.env.REACT_APP_URL_BACKEND + `/imagenes_articulo/${dataInformacionArt.id_informacionart}`)
+        const respon = await fetch(process.env.REACT_APP_URL_BACKEND + `/imagenes_articulo/${dataInformacionArt.id_informacionart}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            mode: 'cors',
+        })
         const InfoIMG = await respon.json()
 
         if (InfoIMG.message) {
