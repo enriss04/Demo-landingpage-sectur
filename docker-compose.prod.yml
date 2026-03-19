@@ -8,7 +8,7 @@ services:
     image: backend-landing-sectur:latest
     container_name: demo_backend_landing_sectur
     ports:
-      - "8010:80"
+      - "8010:3000"
     networks:
       - net-tecnomex
       - postgresql_devsmex_net
