@@ -1,19 +1,23 @@
+name: landing-sectur-demo-project
+
 services:
-  demo_backend_landing_sectur:
+  backend-expressjs:
+    container_name: landing-sectur-backend-container
+    image: landing-sectur-backend-image:v1.0
     build:
       context: ./backend-sectur
       dockerfile: Dockerfile.prod
     env_file:
       - .env
-    image: backend-landing-sectur:latest
-    container_name: demo_backend_landing_sectur
     ports:
-      - "8010:3000"
+      - "4002:3000"
     networks:
-      - net-tecnomex
-      - postgresql_devsmex_net
+      - nginx-network
+      - demo-internal-network
 
-  demo_frontend_landing_sectur:
+  frontend-reactjs:
+    container_name: landing-sectur-frontend-container
+    image: landing-sectur-frontend-image:v1.0
     build:
       context: ./frontend-sectur
       dockerfile: Dockerfile.prod
@@ -22,15 +26,13 @@ services:
         - REACT_APP_GET_IMG_ARTICULO=${REACT_APP_GET_IMG_ARTICULO}
         - REACT_APP_GET_IMG_HOTEL=${REACT_APP_GET_IMG_HOTEL}
         - REACT_APP_GET_IMG_INFOARTICULO=${REACT_APP_GET_IMG_INFOARTICULO}
-    image: frontend-landing-sectur:latest
-    container_name: demo_frontend_landing_sectur
     ports:
-      - "4010:80"
+      - "3004:80"
     networks:
-      - net-tecnomex
+      - nginx-network
 
 networks:
-  net-tecnomex:
+  nginx-network:
     external: true
-  postgresql_devsmex_net:
+  demo-internal-network:
     external: true
